@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec  5 20:43:07 2016
+
+@author: cgowl_000
+"""
+
+# Standard imports
+import cv2
+import numpy as np;
+from IPython import get_ipython
+get_ipython().magic('reset -sf')
+import matplotlib.pyplot as plt 
+from scipy import misc
+import matplotlib.widgets as widgets
+plt.close()
+#Gravitational lensing
+
+#setup/ input values
+#units and constants
+pc =(3.0857)*1e16 
+c = 3e8 # m/s
+#source galaxy
+N = 250# Mesh size
+fnought = 10
+Nhalf =int( N/2)
+x = np.linspace(-Nhalf,Nhalf, N)
+y = np.linspace(-Nhalf,Nhalf,N)
+[X,Y] = np.meshgrid(x,y)
+r = np.sqrt(X**2 +Y**2)
+a = 3
+sp =fnought*np.exp(-r/a)
+# Read image
+#im = cv2.imread("blob.jpg", cv2.IMREAD_GRAYSCALE)
+ 
+# Set up the detector with default parameters.
+detector = cv2.SimpleBlobDetector()
+ 
+# Detect blobs.
+keypoints = detector.detect(sp)

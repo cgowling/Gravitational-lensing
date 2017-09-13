@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Nov 22 11:10:06 2016
+
+@author: cgowl_000
+"""
+
+from IPython import get_ipython
+get_ipython().magic('reset -sf')
+import matplotlib.pyplot as plt 
+from scipy import misc
+import numpy as np
+plt.close()
+
+fnought = 5
+x = np.linspace(-25,25)
+y = np.linspace(-25,25)
+r = [x,y]
+f =fnought* np.exp(-r/a)
+ 
